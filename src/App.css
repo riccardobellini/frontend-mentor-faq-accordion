@@ -1,7 +1,14 @@
 #root {
-  background-image: url('/images/background-pattern-desktop.png');
+  background-image: url('/images/background-pattern-mobile.png');
   background-repeat: no-repeat;
-  background-size: 100% 320px;
+  background-size: 100%;
+}
+
+@media (min-width: 768px) {
+  #root {
+    background-image: url('/images/background-pattern-desktop.png');
+    background-size: 100% 320px;
+  }
 }
 
 .question-container > * + * {

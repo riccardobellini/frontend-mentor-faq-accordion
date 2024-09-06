@@ -34,18 +34,18 @@ function Question(props: {question: Question, open: boolean, selectionChangeHand
   return (
     <div className='[&:not(:first-of-type)]:pt-8'>
       <div
-        className='flex justify-between items-center hover:text-fuchsia hover:cursor-pointer focus:text-fuchsia focus:cursor-pointer'
+        className='flex gap-4 justify-between items-center hover:text-fuchsia hover:cursor-pointer focus:text-fuchsia focus:cursor-pointer'
         onClick={() => {
           selectionChangeHandler(open ? null : question.id)
         }}
       >
-        <h2 className='text-2xl font-semibold'>{question.title}</h2>
-        <button className='inline-block'>
+        <h2 className='text-md md:text-2xl font-semibold'>{question.title}</h2>
+        <button className='inline-block flex-shrink-0'>
           <img src={open ? minus : plus} alt='a plus icon' />
         </button>
       </div>
       {open &&
-      <p className='text-grayishpurple mt-8 text-xl'>
+      <p className='text-grayishpurple mt-8 text-lg md:text-xl'>
         {question.answer}
       </p>
       }
@@ -59,10 +59,10 @@ function App() {
 
   return (
     <>
-      <div className='w-[40%] px-12 py-14 bg-white rounded-xl mx-auto shadow-xl text-darkpurple'>
+      <div className='sm:w-[60%] row-start-2 md:row-start-1 xl:w-[40%] px-6 py-8 sm:px-12 sm:py-14 bg-white rounded-xl mx-auto shadow-xl text-darkpurple'>
         <header className='flex gap-8 mb-10'>
           <img src={star} alt='a purple star' />
-          <h1 className='text-6xl font-bold tracking-wide'>FAQs</h1>
+          <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide'>FAQs</h1>
         </header>
         <section className='space-y-8 question-container'>
           {questions.map(q => <Question
