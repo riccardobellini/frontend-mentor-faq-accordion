@@ -9,7 +9,8 @@ export default {
       colors: {
         lightpink: 'hsl(275, 100%, 97%)',
         grayishpurple: 'hsl(292, 16%, 49%)',
-        darkpurple: 'hsl(292, 42%, 14%)'
+        darkpurple: 'hsl(292, 42%, 14%)',
+        fuchsia: '#a234d3'
       }
     },
   },

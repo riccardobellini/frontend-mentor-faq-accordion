@@ -33,11 +33,16 @@ function Question(props: {question: Question, open: boolean, selectionChangeHand
   const {question, open, selectionChangeHandler} = props;
   return (
     <div className='[&:not(:first-of-type)]:pt-8'>
-      <div className='flex justify-between items-center'>
-        <h2 className='text-2xl font-semibold'>{question.title}</h2>
-        <img src={open ? minus : plus} alt='a plus icon' onClick={() => {
+      <div
+        className='flex justify-between items-center hover:text-fuchsia hover:cursor-pointer focus:text-fuchsia focus:cursor-pointer'
+        onClick={() => {
           selectionChangeHandler(open ? null : question.id)
-        }} />
+        }}
+      >
+        <h2 className='text-2xl font-semibold'>{question.title}</h2>
+        <button className='inline-block'>
+          <img src={open ? minus : plus} alt='a plus icon' />
+        </button>
       </div>
       {open &&
       <p className='text-grayishpurple mt-8 text-xl'>
@@ -50,7 +55,7 @@ function Question(props: {question: Question, open: boolean, selectionChangeHand
 
 
 function App() {
-  const [selectedQuestionId, setSelectedQuestionId] = useState<number | null>(null);
+  const [selectedQuestionId, setSelectedQuestionId] = useState<number | null>(1);
 
   return (
     <>
