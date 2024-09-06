@@ -32,20 +32,20 @@ const questions: Question[] = [{
 function Question(props: {question: Question, open: boolean, selectionChangeHandler: (idx: number | null) => void}) {
   const {question, open, selectionChangeHandler} = props;
   return (
-    <div className='[&:not(:first-of-type)]:pt-8'>
+    <div className='[&:not(:first-of-type)]:pt-4'>
       <div
-        className='flex gap-4 justify-between items-center hover:text-fuchsia hover:cursor-pointer focus:text-fuchsia focus:cursor-pointer'
+        className='flex gap-2 justify-between items-center hover:text-fuchsia hover:cursor-pointer focus:text-fuchsia focus:cursor-pointer'
         onClick={() => {
           selectionChangeHandler(open ? null : question.id)
         }}
       >
-        <h2 className='text-md md:text-2xl font-semibold'>{question.title}</h2>
+        <h2 className='text-lg font-semibold leading-none'>{question.title}</h2>
         <button className='inline-block flex-shrink-0'>
           <img src={open ? minus : plus} alt='a plus icon' />
         </button>
       </div>
       {open &&
-      <p className='text-grayishpurple mt-8 text-lg md:text-xl'>
+      <p className='text-grayishpurple mt-4 text-sm sm:text-lg'>
         {question.answer}
       </p>
       }
@@ -59,12 +59,12 @@ function App() {
 
   return (
     <>
-      <div className='sm:w-[60%] row-start-2 md:row-start-1 xl:w-[40%] px-6 py-8 sm:px-12 sm:py-14 bg-white rounded-xl mx-auto shadow-xl text-darkpurple'>
-        <header className='flex gap-8 mb-10'>
+      <div className='sm:w-[60%] row-start-2 xl:w-[42%] px-6 py-8 sm:p-10 bg-white rounded-xl mx-auto shadow-xl text-darkpurple'>
+        <header className='flex gap-8 mb-4 sm:mb-10'>
           <img src={star} alt='a purple star' />
           <h1 className='text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide'>FAQs</h1>
         </header>
-        <section className='space-y-8 question-container'>
+        <section className='space-y-6 question-container'>
           {questions.map(q => <Question
             key={q.id}
             open={selectedQuestionId == q.id}
